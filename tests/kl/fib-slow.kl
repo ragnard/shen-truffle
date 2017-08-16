@@ -1,0 +1,13 @@
+(defun fib-slow (V1354)
+  (cond
+   ((= 0 V1354) 1)
+   ((= 1 V1354) 1)
+   (true (+ (fib-slow (- V1354 1)) (fib-slow (- V1354 2))))))
+
+(fib-slow 40)
+(fib-slow 40)
+(fib-slow 40)
+(fib-slow 40)
+(fib-slow 40)
+
+all-done

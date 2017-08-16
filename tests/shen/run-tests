@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+
+time $DIR/../../scripts/shen-truffle \
+     --eval "(cd \"${PWD}/src/test/resources/test-programs\")" \
+     --load "README.shen" \
+     --load "tests.shen" #| grep "pass rate"
+
+

@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT="$DIR/.."
+
+JAVA=/Users/ragnardahlen/projects/graalvm/labsjdk1.8.0_121-jvmci-0.26/bin/java
+#JAVA=/Users/ragnardahlen/projects/graalvm/labsjdk1.8.0_121-jvmci-0.29/bin/java
+GRAAL_HOME=/Users/ragnardahlen/projects/graalvm/graalvm-0.24
+
+"$JAVA" -server \
+        -Xss16M \
+        -XX:+UnlockExperimentalVMOptions \
+        -XX:+EnableJVMCI \
+        -d64 \
+        -Djvmci.class.path.append=$GRAAL_HOME/lib/graal/graal.jar \
+        -Xbootclasspath/a:$GRAAL_HOME/lib/truffle/truffle-api.jar \
+        -Dgraal.TruffleCompilationExceptionsAreFatal=true \
+        -cp $ROOT/target/classes \
+        com.github.ragnard.shen.Shen "$@"
+
+
+GRAAL_HOME=/Users/ragnardahlen/projects/graalvm/graalvm-0.24
+
+JAVACMD=${JAVACMD:=$GRAAL_HOME/bin/java}
+
+PROGRAM_ARGS=""
+JAVA_ARGS="-Dgraal.TruffleCompilationExceptionsAreFatal=true"
+
+
+
+#        -Dgraal.Dump= -Dgraal.MethodFilter=Truffle.* -Dgraal.TruffleBackgroundCompilation=false -Dgraal.TraceTruffleCompilation=true -Dgraal.TraceTruffleCompilationDetails=true \
+#        -Dgraal.Dump= -Dgraal.MethodFilter=Truffle.* -Dgraal.TruffleBackgroundCompilation=false -Dgraal.TraceTruffleCompilation=true -Dgraal.TraceTruffleCompilationDetails=true \
+
+
+# "$GRAAL_HOME"/bin/java \
+#             -Xss16M \
+#            -Dgraal.TruffleBackgroundCompilation=true \
+#            -cp target/classes \
+#            com.github.ragnard.shen.Shen "$@"
+
+# "$GRAAL_HOME"/bin/java \
+#              -server \
+#              -Xss16M \
+#              -cp target/classes \
+#              -Dgraal.TruffleCompilationExceptionsAreFatal=true \
+#              com.github.ragnard.shen.Shen "$@"
+

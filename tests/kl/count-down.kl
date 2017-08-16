@@ -1,0 +1,13 @@
+(defun count-down (n)
+  (if (= n 42)
+      done
+    (count-down (- n 1))))
+
+(count-down 1000000)
+(count-down 1000000)
+(count-down 1000000)
+(count-down 1000000)
+(count-down 1000000)
+(count-down 1000000)
+
+all-done
