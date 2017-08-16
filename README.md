@@ -9,11 +9,25 @@ runtime](https://github.com/graalvm/graal).
 Thanks to [Dr Mark Tarver](http://marktarver.com) for his work in
 science and philosophy in general, and Shen in particular.
 
-
 ## Usage
 
 Not yet 
 
+## Development
+
+You will need:
+
+- A GraalVM (< 0.26) or a JDK8 built with JVMCI. You can download either from:
+  - http://www.oracle.com/technetwork/oracle-labs/program-languages/downloads/index.html
+- [Maven](https://maven.apache.org/)
+
+To build:
+
+```
+mvn compile
+```
+
+To run you will currently need to hack the `shen-truffle` script to use your GraalVM/JVM.
 
 ## References
 
